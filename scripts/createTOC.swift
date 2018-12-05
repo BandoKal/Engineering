@@ -1,8 +1,7 @@
 import Foundation
 import Files
 
-//TODO: Create TOC for Root Readme.md of all subsections (non-recursive)
-
+//MARK: - Models used below
 struct Summary: Codable {
     let title: String
     let description: String
@@ -28,10 +27,8 @@ let encoder = JSONEncoder()
 let root = Folder.current.parent!
 let sectionFolders = root.subfolders.filter { !$0.name.contains("scripts")}
 
-func generateTOC(from files: [File]) -> String {
+func generateTOC(from files: [File], in folder: Folder) -> String {
     var toc = TOC.newTOC
-
-
     let tocRows = files.compactMap { (file: File) -> String? in
         if let md = try? file.readAsString(encoding: .utf8),
             let endIndex = md.firstIndex(of: ">"){
@@ -49,7 +46,7 @@ func generateTOC(from files: [File]) -> String {
                 return "|\(file.name)|TODO|"
             }
             let description = elements[1]
-            return "|\(title)|\(description)|"
+            return "|[\(title)](/\(folder.name)#readme)|\(description)|"
         }
         return nil
         }.joined(separator: "\n")
@@ -60,20 +57,19 @@ func generateTOC(from files: [File]) -> String {
 
     return toc
 }
-//.filter { !$0.containsFile(named: "README.md") }
-sectionFolders.forEach { sectionFolder in
 
+sectionFolders.forEach { sectionFolder in
     let readMe = "README.md"
-    let mds = sectionFolder.files.filter({ $0.extension == "md" })
+    let mds = sectionFolder.files.filter({ $0.extension == "md" && !$0.name.contains("README")})
 
     if let sectionReadmeString = try? sectionFolder.file(named: readMe).readAsString(encoding: .utf8) {
         let beforePart = sectionReadmeString.components(separatedBy: TOC.start.rawValue).first!
         let afterPart = sectionReadmeString.components(separatedBy: TOC.end.rawValue).last!
         //get names of all markdown files in section folder
-        _ = try! sectionFolder.createFile(named: readMe, contents: beforePart + generateTOC(from: mds) + afterPart)
+        _ = try! sectionFolder.createFile(named: readMe, contents: beforePart + generateTOC(from: mds, in: sectionFolder) + afterPart)
 
     } else {
-        _ = try! sectionFolder.createFile(named: readMe, contents: "#\(sectionFolder.name)\n" + generateTOC(from: mds))
+        _ = try! sectionFolder.createFile(named: readMe, contents: "#\(sectionFolder.name)\n" + generateTOC(from: mds, in: sectionFolder))
     }
 
     let summaryJson = "summary.json"
@@ -86,8 +82,8 @@ sectionFolders.forEach { sectionFolder in
 }
 
 
+// MARK: - Create TOC for the Root Readme
 let rootReadme = try! root.file(named: "README.md").readAsString(encoding: .utf8)
-
 let beforePart = rootReadme.components(separatedBy: TOC.start.rawValue).first!
 let afterPart = rootReadme.components(separatedBy: TOC.end.rawValue).last!
 
@@ -96,7 +92,7 @@ let decoder = JSONDecoder()
 sectionFolders.forEach {
     if let summaryData = try? $0.file(named: "summary.json").read(),
         let summary = try? decoder.decode(Summary.self, from: summaryData) {
-        toc.append("\n|\(summary.title)|\(summary.description)|")
+        toc.append("\n|[\(summary.title)](/\($0.name)#readme)|\(summary.description)|")
         if summary.description.isEmpty {
             print("WARNING: summary.json at location \($0.path) does not have a description!")
         }
