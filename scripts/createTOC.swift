@@ -46,7 +46,7 @@ func generateTOC(from files: [File], in folder: Folder) -> String {
                 return "|\(file.name)|TODO|"
             }
             let description = elements[1]
-            return "|[\(title)](/\(folder.name)#readme)|\(description)|"
+            return "|[\(title)](/\(folder.name)#\(file.name))|\(description)|"
         }
         return nil
         }.joined(separator: "\n")

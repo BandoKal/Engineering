@@ -5,8 +5,8 @@ This section details the OnBoarding framework. Our goal is to get new hires to a
 <!-- TOC Start -->
 | Section |  |
 |--|--|
-|[Manager Responsibilities](/OnBoarding#readme)|The role of the hiring manager during OnBoarding |
-|[Mentor Responsibilities](/OnBoarding#readme)|The role of the mentor during OnBoarding |
-|[New Hire Responsibilities](/OnBoarding#readme)|The role of the new hire during OnBoarding |
-|[Timeline](/OnBoarding#readme)|A timeline with benchmarks|
+|[Manager Responsibilities](/OnBoarding#manager.md)|The role of the hiring manager during OnBoarding |
+|[Mentor Responsibilities](/OnBoarding#mentor.md)|The role of the mentor during OnBoarding |
+|[New Hire Responsibilities](/OnBoarding#new-hire.md)|The role of the new hire during OnBoarding |
+|[Timeline](/OnBoarding#timeline.md)|A timeline with benchmarks|
 <!-- TOC End-->
