@@ -44,10 +44,10 @@ public func runCreateTOC() {
 
                 guard let title = elements.first,
                     elements.count == 2 else {
-                        return "|[\(file.name)](\(folder.name)/\(file.nameExcludingExtension))|TODO|"
+                        return "|[\(file.name)](\(folder.name)/\(file.name))|TODO|"
                 }
                 let description = elements[1]
-                return "|[\(title)](/\(folder.name)/\(file.nameExcludingExtension))|\(description)|"
+                return "|[\(title)](/\(folder.name)/\(file.name))|\(description)|"
             }
             return nil
             }.joined(separator: "\n")
