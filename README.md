@@ -6,6 +6,6 @@ This repo is a work in progress, please feel free to submit a PR. There will mor
 <!-- TOC Start -->
 | Section |  |
 |--|--|
-|[Engineering-Principles](/Engineering-Principles/readme)|Guiding principles of engineering|
-|[OnBoarding](/Onboarding/readme)|Resources for your first days here at HCA.|
+|[Engineering-Principles](/engineering-principles/README.md)|Guiding principles of engineering|
+|[Onboarding](/onboarding/README.md)|Resources for your first days here at HCA.|
 <!-- TOC End-->

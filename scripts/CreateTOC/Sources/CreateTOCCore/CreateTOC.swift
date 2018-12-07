@@ -44,10 +44,10 @@ public func runCreateTOC() {
 
                 guard let title = elements.first,
                     elements.count == 2 else {
-                        return "|\(file.name)|TODO|"
+                        return "|[\(file.name)](\(folder.name)/\(file.nameExcludingExtension))|TODO|"
                 }
                 let description = elements[1]
-                return "|[\(title)](/\(folder.name)/\(file.name))|\(description)|"
+                return "|[\(title)](/\(folder.name)/\(file.nameExcludingExtension))|\(description)|"
             }
             return nil
             }.joined(separator: "\n")
@@ -93,7 +93,7 @@ public func runCreateTOC() {
     sectionFolders.forEach {
         if let summaryData = try? $0.file(named: "summary.json").read(),
             let summary = try? decoder.decode(Summary.self, from: summaryData) {
-            toc.append("\n|[\(summary.title)](/\($0.name)/readme)|\(summary.description)|")
+            toc.append("\n|[\(summary.title)](/\($0.name)/README.md)|\(summary.description)|")
             if summary.description.isEmpty {
                 print("WARNING: summary.json at location \($0.path) does not have a description!")
             }
