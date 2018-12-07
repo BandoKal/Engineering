@@ -5,6 +5,7 @@ This section details the Onboarding framework. Our goal is to get new hires to a
 <!-- TOC Start -->
 | Section |  |
 |--|--|
+|[Onboarding Framework](/Onboarding/framework.md)|Basic framework for the Onboarding plan |
 |[Manager Responsibilities](/Onboarding/manager.md)|The role of the hiring manager during OnBoarding |
 |[Mentor Responsibilities](/Onboarding/mentor.md)|The role of the mentor during OnBoarding |
 |[New Hire Responsibilities](/Onboarding/new-hire.md)|The role of the new hire during OnBoarding |

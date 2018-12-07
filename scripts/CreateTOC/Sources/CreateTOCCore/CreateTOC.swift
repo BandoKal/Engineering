@@ -26,7 +26,7 @@ public func runCreateTOC() {
     //MARK: - Create TOC for all section ReadMes or generate a readme from template
     let encoder = JSONEncoder()
     let root = Folder.current.parent!
-    let sectionFolders = root.subfolders.filter { !$0.name.contains("scripts")}
+    let sectionFolders = root.subfolders.filter { !$0.name.contains("scripts") && !$0.name.contains("readme-project")}
 
     func generateTOC(from files: [File], in folder: Folder) -> String {
         var toc = TOC.newTOC
