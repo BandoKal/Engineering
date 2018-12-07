@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:README.md">
+   </FileRef>
+   <Group
+      location = "group:Onboarding"
+      name = "Onboarding">
+      <Group
+         location = "container:"
+         name = "resources">
+         <FileRef
+            location = "group:Onboarding-timeline.png">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <FileRef
+         location = "group:framework.md">
+      </FileRef>
+      <FileRef
+         location = "group:manager.md">
+      </FileRef>
+      <FileRef
+         location = "group:mentor.md">
+      </FileRef>
+      <FileRef
+         location = "group:new-hire.md">
+      </FileRef>
+      <FileRef
+         location = "group:timeline.md">
+      </FileRef>
+      <FileRef
+         location = "group:summary.json">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Engineering-Principles"
+      name = "Engineering-Principles">
+      <FileRef
+         location = "group:README.md">
+      </FileRef>
+      <FileRef
+         location = "group:summary.json">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:scripts"
+      name = "scripts">
+      <Group
+         location = "group:CreateTOC"
+         name = "CreateTOC">
+         <FileRef
+            location = "group:Makefile">
+         </FileRef>
+         <Group
+            location = "group:Tests"
+            name = "Tests">
+            <FileRef
+               location = "group:LinuxMain.swift">
+            </FileRef>
+            <Group
+               location = "group:CreateTOCTests"
+               name = "CreateTOCTests">
+               <FileRef
+                  location = "group:CreateTOCTests.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:XCTestManifests.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <FileRef
+            location = "group:README.md">
+         </FileRef>
+         <FileRef
+            location = "group:Package.resolved">
+         </FileRef>
+         <FileRef
+            location = "group:Package.swift">
+         </FileRef>
+         <FileRef
+            location = "group:createTOC.xcodeproj">
+         </FileRef>
+         <Group
+            location = "group:Sources"
+            name = "Sources">
+            <Group
+               location = "group:CreateTOC"
+               name = "CreateTOC">
+               <FileRef
+                  location = "group:main.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:CreateTOCCore"
+               name = "CreateTOCCore">
+               <FileRef
+                  location = "group:CreateTOC.swift">
+               </FileRef>
+            </Group>
+         </Group>
+      </Group>
+   </Group>
+</Workspace>
