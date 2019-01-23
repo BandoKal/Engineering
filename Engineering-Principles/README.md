@@ -3,12 +3,11 @@ These are the principles that guide our decisions here at HCA. These principles 
 
 [The full mission and value statement can be seen here](https://hcahealthcare.com/about/our-mission-and-values.dot#mission)
 <!-- TOC Start -->
-| Section |
-|--|
-|[Principle 1 - Information/Data](#information)|
-|[Principle 2 - Experience](#experience)|
-|[Principle 3 - Growth](#growth)|
-
+| Section |  |
+|--|--|
+|[Information](#information)|
+|[Experience](#experience)|
+|[Growth](#growth)|
 <!-- TOC End-->
 
 ## Information

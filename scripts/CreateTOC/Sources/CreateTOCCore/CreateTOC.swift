@@ -20,23 +20,25 @@ public func runCreateTOC() {
             return """
             \(TOC.start.rawValue)
             \(TOC.header.rawValue)
+            
             """
         }
     }
     //MARK: - Create TOC for all section ReadMes or generate a readme from template
     let encoder = JSONEncoder()
-    let root = Folder.current.parent!
+    let root = try! Folder(path: "/Users/JDU9706/Projects/Engineering")// Folder.current.parent!
     let sectionFolders = root.subfolders.filter { !$0.name.contains("scripts") && !$0.name.contains("readme-project")}
 
-    func generateTOC(from files: [File], in folder: Folder) -> String {
-        var toc = TOC.newTOC
+    
+    func generateTOCRows(from files: [File], in folder: Folder) -> String {
+        
         let tocRows = files.compactMap { (file: File) -> String? in
             if let md = try? file.readAsString(encoding: .utf8),
+                let startIndex = md.firstIndex(of: "<"),
                 let endIndex = md.firstIndex(of: ">"){
                 //get line that matches the pattern <!-- title:{value}, description:{value} -->
                 // use the values here to build the toc row element
-
-                let elements = md[...endIndex].replacingOccurrences(of: "<!--", with: "")
+                let elements = md[startIndex...endIndex].replacingOccurrences(of: "<!--", with: "")
                     .replacingOccurrences(of: "-->", with: "")
                     .replacingOccurrences(of: " title:", with:  "")
                     .replacingOccurrences(of: " description:", with:  "")
@@ -52,11 +54,17 @@ public func runCreateTOC() {
             return nil
             }.joined(separator: "\n")
 
-        toc.append("\n")
-        toc.append(tocRows)
-        toc.append("\n" + TOC.end.rawValue)
-
-        return toc
+        return tocRows
+    }
+    
+    func generateTOCRows(from text: String) -> String {
+        let hashTagComponents = text.components(separatedBy: "## ")
+        let headers = hashTagComponents.compactMap {
+           $0.components(separatedBy: "\n\n").first?.replacingOccurrences(of:" ", with: "-").trimmingCharacters(in: .whitespaces)
+            }.compactMap{
+                $0.isEmpty ? nil : "|[\($0)](#\($0.lowercased()))|"
+        }
+        return headers.joined(separator: "\n")
     }
 
     sectionFolders.forEach { sectionFolder in
@@ -67,10 +75,14 @@ public func runCreateTOC() {
             let beforePart = sectionReadmeString.components(separatedBy: TOC.start.rawValue).first!
             let afterPart = sectionReadmeString.components(separatedBy: TOC.end.rawValue).last!
             //get names of all markdown files in section folder
-            _ = try! sectionFolder.createFile(named: readMe, contents: beforePart + generateTOC(from: mds, in: sectionFolder) + afterPart)
+            
+            let tocRows = generateTOCRows(from: mds, in: sectionFolder)
+            let toc = TOC.newTOC + (tocRows.isEmpty ? generateTOCRows(from: afterPart) : tocRows) + "\n" + TOC.end.rawValue
+            
+            _ = try! sectionFolder.createFile(named: readMe, contents: beforePart + toc + afterPart)
 
         } else {
-            _ = try! sectionFolder.createFile(named: readMe, contents: "#\(sectionFolder.name)\n" + generateTOC(from: mds, in: sectionFolder))
+            _ = try! sectionFolder.createFile(named: readMe, contents: "#\(sectionFolder.name)\n" + generateTOCRows(from: mds, in: sectionFolder))
         }
 
         let summaryJson = "summary.json"
@@ -93,7 +105,7 @@ public func runCreateTOC() {
     sectionFolders.forEach {
         if let summaryData = try? $0.file(named: "summary.json").read(),
             let summary = try? decoder.decode(Summary.self, from: summaryData) {
-            toc.append("\n|[\(summary.title)](/\($0.name)/README.md)|\(summary.description)|")
+            toc.append("|[\(summary.title)](/\($0.name)/README.md)|\(summary.description)|\n")
             if summary.description.isEmpty {
                 print("WARNING: summary.json at location \($0.path) does not have a description!")
             }
