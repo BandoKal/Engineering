@@ -101,9 +101,6 @@ For the above example using `UIGestureRecognizer`, 1 is unambiguous and preferre
 
 **Pro Tip:** You can use Xcode's jump bar to lookup methods with argument labels. If you’re particularly good at mashing lots of keys simultaneously, put the cursor in the method name and press **Shift-Control-Option-Command-C** (all 4 modifier keys) and Xcode will kindly put the signature on your clipboard.
 
-![Methods in Xcode jump bar](screens/xcode-jump-bar.png)
-
-
 ### Class Prefixes
 
 Swift types are automatically namespaced by the module that contains them and you should not add a class prefix such as RW. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is possibility for confusion which should be rare.
@@ -282,10 +279,7 @@ var deviceModels: [String]
 
 ## Spacing
 
-* Indent using 2 spaces rather than tabs to conserve space and help prevent line wrapping. Be sure to set this preference in Xcode and in the Project settings as shown below:
-
-![Xcode indent settings](screens/indentation.png)
-
+* Indent using the standard 4 spaces.
 * Method braces and other braces (`if`/`else`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
 * Tip: You can re-indent by selecting some code (or **Command-A** to select all) and then **Control-I** (or **Editor ▸ Structure ▸ Re-Indent** in the menu). Some of the Xcode template code will have 4-space tabs hard coded, so this is a good way to fix that.
 
@@ -1055,8 +1049,6 @@ Do not use emoji in your projects. For those readers who actually type in their 
 ## Organization and Bundle Identifier
 
 Where an Xcode project is involved, the organization should be set to `hcahealthcare` and the Bundle Identifier set to `com.hcahealthcare.{AppName}`
-
-![Xcode Project settings](screens/project_settings.png)
 
 ## Copyright Statement
 
