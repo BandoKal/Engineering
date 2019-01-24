@@ -56,7 +56,7 @@ Our overarching goals are clarity, consistency and brevity, in that order.
 
 ## Correctness
 
-Strive to make your code compile without warnings. This rule informs many style decisions such as using `#selector` types instead of string literals.
+Make your code compile without warnings. You can modify your projects build settings to treat warnings as errors to prevent any slipping by. This rule informs many style decisions such as using `#selector` types instead of string literals.
 
 ## Naming
 
