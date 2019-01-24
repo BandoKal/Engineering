@@ -1,4 +1,4 @@
-<!-- title:Manager Responsibilities, description:The role of the hiring manager during OnBoarding -->
+<!-- title:Manager Responsibilities, description:The role of the hiring manager during Onboarding -->
 # Manager Responsibilities
 The hiring managers main role is to empower and enable the new hire.
 
@@ -12,4 +12,4 @@ The hiring managers main role is to empower and enable the new hire.
         * TFS
         * Github Enterprise
 
-Craft an onboarding plan for the newhire. One of the first tasks of creating the onboard plan is to select and assign a mentor for the new hire. You can use the mentor to help create the benchmark assessments later in the onboarding plan. The intent of these assements is to give you an indication the effectiveness of our onboarding process.
+Craft an onboarding plan for the newhire. One of the first tasks of creating the onboard plan is to select and assign a mentor for the new hire. You should work with the mentor to accommodate mentorship work. You can use the mentor to help create the benchmark assessments later in the onboarding plan. The intent of these assements is to give you an indication the effectiveness of our onboarding process.
