@@ -17,4 +17,5 @@ steps:
     ls -a
     cd scripts/createTOC
     make
+    createTOC
   displayName: 'Create Table Of Contents'
