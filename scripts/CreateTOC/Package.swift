@@ -20,5 +20,5 @@ let package = Package(
             name: "createTOCTests",
             dependencies: ["createTOC"]),
         ],
-    swiftLanguageVersions: [.version("4.2")]
+    swiftLanguageVersions: [.version("4.1")]
 )
