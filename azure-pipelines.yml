@@ -13,10 +13,8 @@ steps:
 - script: |
     echo start
     sudo xcode-select -s /Applications/Xcode_10.1.app/Contents/Developer
-    cd scripts/createTOC
-    make
+    make --directory scripts/CreateTOC
     createTOC
-    cd ../..
     git commit -am"dev.azure: Commiting creation of TOC"
     git push origin master
     echo end
