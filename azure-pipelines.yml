@@ -12,14 +12,12 @@ pool:
 steps:
 - script: |
     echo start
-    xcodebuild -version
     sudo xcode-select -s /Applications/Xcode_10.1.app/Contents/Developer
-    xcode-select -p
-    xcodebuild -version
-    pwd
-    ls -a
     cd scripts/createTOC
     make
     createTOC
+    cd ../..
+    git commit -am"dev.azure: Commiting creation of TOC"
+    git push origin master
     echo end
   displayName: 'Create Table Of Contents'
