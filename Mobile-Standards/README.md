@@ -4,5 +4,5 @@ This section describes our standards and best practices related to mobile apps. 
 <!-- TOC Start -->
 | Section |  |
 |--|--|
-|[Mobile Standards](/Mobile-Standards/mobile-alerting-and-sounds-standard.md)|Guidelines and standards for sounds being emitted from mobile devices at HCA|
+|[Mobile Alerting and Sounds Standard](/Mobile-Standards/mobile-alerting-and-sounds-standard.md)|Guidelines and standards for sounds being emitted from mobile devices at HCA|
 <!-- TOC End-->
