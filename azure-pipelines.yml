@@ -14,7 +14,7 @@ steps:
     echo start
     xcodebuild -version
     sudo xcode-select -s /Applications/Xcode_10.1.app/Contents/Developer
-    xcode-select -p /Applications/Xcode_10.1.app/Contents/Developer
+    xcode-select -p
     xcodebuild -version
     pwd
     ls -a
