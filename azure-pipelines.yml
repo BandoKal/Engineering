@@ -13,7 +13,8 @@ steps:
 - script: |
     echo start
     xcodebuild -version
-    xcode-select -s /Applications/Xcode_10.1.app/Contents/Developer
+    sudo xcode-select -s /Applications/Xcode_10.1.app/Contents/Developer
+    xcode-select -p /Applications/Xcode_10.1.app/Contents/Developer
     xcodebuild -version
     pwd
     ls -a
