@@ -6,7 +6,7 @@ This document is intended to set guidelines and standards on sounds being emitte
 
 ## Non-Clinical Environment
 
-Sounds introduced into the non-clinical environment should augment the patient/clinician experience not disrupt it. When selecting sounds, one should ensure that it is appropriate for the goal of the sound alert, ringtone, or alarm. The sounds should be in alignment with the following:
+Sounds introduced into the non-clinical environment should augment the user experience not disrupt it. When selecting sounds, one should ensure that it is appropriate for the goal of the sound alert, ringtone, or alarm. The sounds should be in alignment with the following:
 
 * Sounds should not mimic common emergency sounds or sirens.
 * Sounds should be considered professional in nature
